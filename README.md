@@ -1,3 +1,3 @@
 # shiva-stuti
-[org](test.org)
-[html](test.html)
+
+[Guru Ashtakam](src/guruashatakam.html)
