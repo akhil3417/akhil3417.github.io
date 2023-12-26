@@ -1,0 +1,31 @@
+.floating-button {
+  z-index: 9999;
+  background-color: #fff;
+  border: none;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.3);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  /* margin-right: 10px; */
+}
+.floating-button-container {
+  display: flex;
+  justify-content: flex-end;
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 99999;
+}
+
+.floating-button img {
+  width: 20px;
+  height: 20px;
+}
+
+#play-pause-button {
+  margin: 0 10px;
+}
