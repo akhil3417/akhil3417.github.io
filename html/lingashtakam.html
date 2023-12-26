@@ -54,6 +54,82 @@
 	</style>
 	<link rel='stylesheet' id='uncode-custom-style-css'
 		href='../css/style-custom.css' type='text/css' media='all' />
+
+<!-- floating -play pause button -->
+<style>
+
+  .floating-button-container {
+    display: flex;
+    justify-content: flex-end;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 99999;
+  }
+
+  .floating-button {
+    z-index: 9999;
+    background-color: #fff;
+    border: none;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.3);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    /* margin-right: 10px; */
+  }
+
+  .floating-button img {
+    width: 20px;
+    height: 20px;
+  }
+
+  #play-pause-button {
+    margin: 0 10px;
+  }
+</style>
+
+<div class="floating-button-container">
+<div id="backward-button" class="floating-button" onclick="seekBackward()">
+  <img src="../images/backward.png" alt="Backward" id="backward-icon">
+</div>
+
+<div id="play-pause-button" class="floating-button" onclick="toggleAudio()">
+  <img src="../images/play.png" alt="Play" id="play-icon">
+</div>
+
+<div id="forward-button" class="floating-button" onclick="seekForward()">
+  <img src="../images/forward.png" alt="Forward" id="forward-icon">
+</div>
+</div>
+
+<script>
+  var audio = document.getElementById("myAudio");
+  var playIcon = document.getElementById("play-icon");
+  var backwardIcon = document.getElementById("backward-icon");
+  var forwardIcon = document.getElementById("forward-icon");
+
+  function toggleAudio() {
+    if (audio.paused) {
+      audio.play();
+      playIcon.src = "../images/pause.png";
+    } else {
+      audio.pause();
+      playIcon.src = "../images/play.png";
+    }
+  }
+
+  function seekBackward() {
+    audio.currentTime -= 10;
+  }
+
+  function seekForward() {
+    audio.currentTime += 10;
+  }
+</script>
 	<style id='uncode-custom-style-inline-css' type='text/css'>
 		@media (min-width:960px) {
 			.page .limit-width {
@@ -483,13 +559,14 @@ user-select: none;
 														<div class="h3 object-size self-audio fluid-object"
 															style="padding-top: 100%">
 															<!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
-															<audio class="wp-audio-shortcode" id="audio-112629-1"
+															<audio class="audio-controls" id="myAudio"
 																preload="none" style="width: 100%;" controls="controls">
 																<source type="audio/mpeg"
 																	src="../audio/lingashtkam.opus?_=1">
 																</source><a
 																	href="../audio/lingashtkam.opus">../audio/lingashtkam.opus</a>
 															</audio>
+
 														</div>
 													</div>
 												</div>
@@ -498,10 +575,13 @@ user-select: none;
 									</div>
 								</div>
 							</div>
+<!-- seek here -->
 						</div>
 					</div>
 				</div>
+
 			</div>
+
 		</div>
 	</div>
 					<script id="script-208901" data-row="script-208901" type="text/javascript"
@@ -690,5 +770,46 @@ The Lingashtakam is one of the most popular Ashtakams(a Stotram with 8 verses) d
 
 </p></div>
 </div><hr class="border-color-uydo-color separator-no-padding"  />
+					</div>
+<strong>Here is another Beautiful Recitation by a female Singer</strong>
+<script>
+  var audio = document.getElementById("myAudio");
+
+  function seekBackward() {
+    audio.currentTime -= 10;
+  }
+
+  function seekForward() {
+    audio.currentTime += 10;
+  }
+</script>
+
+<style>
+  .audio-controls {
+    display: flex;
+    align-items: center;
+  }
+
+  .audio-controls button {
+    background: none;
+    border: none;
+    margin: 0 5px;
+    cursor: pointer;
+  }
+</style>
+
+<div class="audio-controls">
+  <audio id="myAudio" preload="none" style="width: 100%;" controls volume="0.5">
+    <source src="audio_file.mp3" type="audio/mpeg">
+  </audio>
+
+  <button onclick="seekBackward()">
+    <img src="../images/backward.png" alt="Backward" width="20" height="20">
+  </button>
+
+  <button onclick="seekForward()">
+    <img src="../images/forward.png" alt="Forward" width="20" height="20">
+  </button>
+</div>
 </body>
 </html>
