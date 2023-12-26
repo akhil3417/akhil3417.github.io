@@ -484,7 +484,7 @@ user-select: none;
 														<div class="h3 object-size self-audio fluid-object"
 															style="padding-top: 100%">
 															<!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
-															<audio class="wp-audio-shortcode" id="audio-112629-1"
+															<audio class="wp-audio-shortcode" id="myAudio"
 																preload="none" style="width: 100%;" controls="controls">
 																<source type="audio/mpeg"
 																	src="https://shlokam.org/wp-content/uploads/2020/11/Guru-Ashtakam-audio.mp3?_=1">
@@ -1290,5 +1290,24 @@ worldly existence. </p>
 
 </div>
 </div><hr class="border-color-uydo-color separator-no-padding"  />
+
+
+					</div><!-- button does'nt seem to floating without this , so whatever works -->
+<link rel="stylesheet" href="../css/floating-buttons.css">
+
+<div class="floating-button-container">
+<div id="backward-button" class="floating-button" onclick="seekBackward()">
+  <img src="../images/backward.png" alt="Backward" id="backward-icon">
+</div>
+
+<div id="play-pause-button" class="floating-button" onclick="toggleAudio()">
+  <img src="../images/play.png" alt="Play" id="play-icon">
+</div>
+
+<div id="forward-button" class="floating-button" onclick="seekForward()">
+  <img src="../images/forward.png" alt="Forward" id="forward-icon">
+</div>
+</div>
+<script src="../js/floating-buttons.js"></script>
 </body>
 </html>
