@@ -92,44 +92,6 @@
   }
 </style>
 
-<div class="floating-button-container">
-<div id="backward-button" class="floating-button" onclick="seekBackward()">
-  <img src="../images/backward.png" alt="Backward" id="backward-icon">
-</div>
-
-<div id="play-pause-button" class="floating-button" onclick="toggleAudio()">
-  <img src="../images/play.png" alt="Play" id="play-icon">
-</div>
-
-<div id="forward-button" class="floating-button" onclick="seekForward()">
-  <img src="../images/forward.png" alt="Forward" id="forward-icon">
-</div>
-</div>
-
-<script>
-  var audio = document.getElementById("myAudio");
-  var playIcon = document.getElementById("play-icon");
-  var backwardIcon = document.getElementById("backward-icon");
-  var forwardIcon = document.getElementById("forward-icon");
-
-  function toggleAudio() {
-    if (audio.paused) {
-      audio.play();
-      playIcon.src = "../images/pause.png";
-    } else {
-      audio.pause();
-      playIcon.src = "../images/play.png";
-    }
-  }
-
-  function seekBackward() {
-    audio.currentTime -= 10;
-  }
-
-  function seekForward() {
-    audio.currentTime += 10;
-  }
-</script>
 	<style id='uncode-custom-style-inline-css' type='text/css'>
 		@media (min-width:960px) {
 			.page .limit-width {
@@ -770,20 +732,25 @@ The Lingashtakam is one of the most popular Ashtakams(a Stotram with 8 verses) d
 
 </p></div>
 </div><hr class="border-color-uydo-color separator-no-padding"  />
-					</div>
-<b>Here is another Beautiful Recitation by a female Singer</b>
-<script>
-  var audio = document.getElementById("myAudio");
+					</div><!-- button does'nt seem to floating without this , so whatever works -->
+<link rel="stylesheet" href="../css/floating-buttons.css">
 
-  function seekBackward() {
-    audio.currentTime -= 10;
-  }
+<div class="floating-button-container">
+<div id="backward-button" class="floating-button" onclick="seekBackward()">
+  <img src="../images/backward.png" alt="Backward" id="backward-icon">
+</div>
 
-  function seekForward() {
-    audio.currentTime += 10;
-  }
-</script>
+<div id="play-pause-button" class="floating-button" onclick="toggleAudio()">
+  <img src="../images/play.png" alt="Play" id="play-icon">
+</div>
 
+<div id="forward-button" class="floating-button" onclick="seekForward()">
+  <img src="../images/forward.png" alt="Forward" id="forward-icon">
+</div>
+</div>
+<script src="../js/floating-buttons.js"></script>
+
+<b>Here is another Beautiful Recitation of Lingashtakam by a female Singer</b>
 <style>
   .audio-controls {
     display: flex;
@@ -799,17 +766,29 @@ The Lingashtakam is one of the most popular Ashtakams(a Stotram with 8 verses) d
 </style>
 
 <div class="audio-controls">
-  <audio id="myAudio" preload="none" style="width: 100%;" controls volume="0.5">
-    <source src="audio_file.mp3" type="audio/mpeg">
+  <audio id="audiov" preload="none" style="width: 100%;" controls volume="0.5">
+    <source src="../audio/lingashtkamv2.opus" type="audio/mpeg">
   </audio>
 
-  <button onclick="seekBackward()">
+  <button onclick="seekBackward2()">
     <img src="../images/backward.png" alt="Backward" width="20" height="20">
   </button>
 
-  <button onclick="seekForward()">
+  <button onclick="seekForward2()">
     <img src="../images/forward.png" alt="Forward" width="20" height="20">
   </button>
 </div>
+
+<script>
+  var audiov2 = document.getElementById("audiov");
+
+  function seekBackward2() {
+    audiov2.currentTime -= 10;
+  }
+
+  function seekForward2() {
+    audiov2.currentTime += 10;
+  }
+</script>
 </body>
 </html>
