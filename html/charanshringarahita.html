@@ -874,5 +874,46 @@ The translation of the hymn is based on Smt. Usha Bhise's and is taken from the 
 </div>
 </div>
 <script src="../js/floating-buttons.js"></script>
+
+<b>Here is another Beautiful Recitation by T.S Rangnathan.</b>
+<style>
+  .audio-controls {
+    display: flex;
+    align-items: center;
+  }
+
+  .audio-controls button {
+    background: none;
+    border: none;
+    margin: 0 5px;
+    cursor: pointer;
+  }
+</style>
+
+<div class="audio-controls">
+  <audio id="audiov" preload="none" style="width: 100%;" controls volume="0.5">
+    <source src="../audio/charansringarahitav2.opus" type="audio/mpeg">
+  </audio>
+
+  <button onclick="seekBackward2()">
+    <img src="../images/backward.png" alt="Backward" width="20" height="20">
+  </button>
+
+  <button onclick="seekForward2()">
+    <img src="../images/forward.png" alt="Forward" width="20" height="20">
+  </button>
+</div>
+
+<script>
+  var audiov2 = document.getElementById("audiov");
+
+  function seekBackward2() {
+    audiov2.currentTime -= 10;
+  }
+
+  function seekForward2() {
+    audiov2.currentTime += 10;
+  }
+</script>
 </body>
 </html>
