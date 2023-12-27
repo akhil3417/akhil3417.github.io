@@ -487,9 +487,9 @@ user-select: none;
 															<audio class="wp-audio-shortcode" id="myAudio"
 																preload="none" style="width: 100%;" controls="controls">
 																<source type="audio/mpeg"
-																	src="https://shlokam.org/wp-content/uploads/2020/11/Guru-Ashtakam-audio.mp3?_=1">
+																	src="../audio/suvarnmala.opus?_=1">
 																</source><a
-																	href="https://shlokam.org/wp-content/uploads/2020/11/Guru-Ashtakam-audio.mp3">https://shlokam.org/wp-content/uploads/2020/11/Guru-Ashtakam-audio.mp3</a>
+																	href="../audio/suvarnmala.opus">../audio/suvarnmala.opus</a>
 															</audio>
 														</div>
 													</div>
@@ -1277,6 +1277,8 @@ O the Eternally Auspicious God, the Consort of Parvati, the ever peaceful One, a
 					</div></div></div></div></div></div></div></div><script id="script-113115" data-row="script-113115" type="text/javascript" class="vc_controls">UNCODE.initRow(document.getElementById("script-113115"));</script></div></div></div><div data-parent="true" class="vc_row style-color-lxmt-bg row-container"><div class="row row-parent"><div class="wpb_row row-inner"><div class="wpb_column pos-top pos-center align_left column_parent col-lg-12 single-internal-gutter"><div class="uncol style-light"  ><div class="uncoltable"><div class="uncell no-block-padding"><div class="uncont"><div class="uncode_text_column text-lead" ><h3>Description and Commentary</h3>
 <div class="verse_desc">
 <!-- desc here -->
+<b>Above Recitation is by Pandit Jasraj.</b>
+<br>
 
 
 <p> Suvarnamala Stuti is a hymn of praise for Lord Shiva consisting of 50
@@ -1309,5 +1311,47 @@ worldly existence. </p>
 </div>
 </div>
 <script src="../js/floating-buttons.js"></script>
+
+<br>
+<b>Here is another Beautiful Recitation of Suvarnamala Stuti by Vinaya, S. Saindhavi</b>
+<style>
+  .audio-controls {
+    display: flex;
+    align-items: center;
+  }
+
+  .audio-controls button {
+    background: none;
+    border: none;
+    margin: 0 5px;
+    cursor: pointer;
+  }
+</style>
+
+<div class="audio-controls">
+  <audio id="audiov" preload="none" style="width: 100%;" controls volume="0.5">
+    <source src="../audio/suvarnmalav2.opus" type="audio/mpeg">
+  </audio>
+
+  <button onclick="seekBackward2()">
+    <img src="../images/backward.png" alt="Backward" width="20" height="20">
+  </button>
+
+  <button onclick="seekForward2()">
+    <img src="../images/forward.png" alt="Forward" width="20" height="20">
+  </button>
+</div>
+
+<script>
+  var audiov2 = document.getElementById("audiov");
+
+  function seekBackward2() {
+    audiov2.currentTime -= 10;
+  }
+
+  function seekForward2() {
+    audiov2.currentTime += 10;
+  }
+</script>
 </body>
 </html>
