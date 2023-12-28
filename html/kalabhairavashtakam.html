@@ -485,7 +485,7 @@ user-select: none;
 															<!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
 															<audio class="wp-audio-shortcode" id="myAudio"
 																preload="none" style="width: 100%;" controls="controls">
-																<source type="audio/mpeg"
+																<source type="audio/mpeg" id="audioSource"
 																	src="../audio/kalabhairava.opus?_=1">
 																</source><a
 																	href="../audio/kalabhairava.opus">../audio/kalabhairava.opus</a>
@@ -498,6 +498,29 @@ user-select: none;
 									</div>
 								</div>
 							</div>
+<!-- audio options here -->
+<div>
+	<select id="audioSelect" onchange="changeAudio()">
+		<option value="kalabhairava.opus">Kalabhairavashtakam · Manasa Himaja</option>
+		<option value="kalabhairavav1.opus">Kalabhairavashtakam · C.Saroja & C.Lalitha(Bombay Sisters)  </option>
+		<option value="kalabhairavav2.opus">Kalabhairavashtakam · Dr M Balamuralikrishna</option>
+	</select>
+</div>
+
+<script>
+	function changeAudio() {
+		var audioSelect = document.getElementById("audioSelect");
+		var audioSource = document.getElementById("audioSource");
+		var audio = document.getElementById("myAudio");
+
+		// Get the selected value from the dropdown
+		var selectedAudio = audioSelect.value;
+
+		// Update the source and reload the audio
+		audioSource.src = "../audio/" + selectedAudio;
+		audio.load();
+	}
+</script>
 						</div>
 					</div>
 				</div>
