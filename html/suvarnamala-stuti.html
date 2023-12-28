@@ -486,7 +486,7 @@ user-select: none;
 															<!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
 															<audio class="wp-audio-shortcode" id="myAudio"
 																preload="none" style="width: 100%;" controls="controls">
-																<source type="audio/mpeg"
+																<source type="audio/mpeg" id="audioSource"
 																	src="../audio/suvarnmala.opus?_=1">
 																</source><a
 																	href="../audio/suvarnmala.opus">../audio/suvarnmala.opus</a>
@@ -496,6 +496,34 @@ user-select: none;
 												</div>
 											</div>
 										</div>
+<div>
+  <select id="audioSelect" onchange="changeAudio()">
+    <option value="suvarnmala.opus">Suvarnmala Stuti by Pt. Jasraj</option>
+    <option value="suvarnmalav1.opus">Suvarnamala Stuti by Bombay Sisters </option>
+    <option value="suvarnmalav2.opus">Suvarnamala Stuti by Vinaya, S. Saindhavi</option>
+  </select>
+</div>
+
+<style>
+  #audioSelect {
+    width: 200px; /* Adjust the width as desired */
+  }
+</style>
+
+<script>
+  function changeAudio() {
+    var audioSelect = document.getElementById("audioSelect");
+    var audioSource = document.getElementById("audioSource");
+    var audio = document.getElementById("myAudio");
+
+    // Get the selected value from the dropdown
+    var selectedAudio = audioSelect.value;
+
+    // Update the source and reload the audio
+    audioSource.src = "../audio/" + selectedAudio;
+    audio.load();
+  }
+</script>
 									</div>
 								</div>
 							</div>
@@ -1313,47 +1341,5 @@ worldly existence. </p>
 </div>
 </div>
 <script src="../js/floating-buttons.js"></script>
-
-<br>
-<b>Here is another Beautiful Recitation of Suvarnamala Stuti by Vinaya, S. Saindhavi</b>
-<style>
-  .audio-controls {
-    display: flex;
-    align-items: center;
-  }
-
-  .audio-controls button {
-    background: none;
-    border: none;
-    margin: 0 5px;
-    cursor: pointer;
-  }
-</style>
-
-<div class="audio-controls">
-  <audio id="audiov" preload="none" style="width: 100%;" controls volume="0.5">
-    <source src="../audio/suvarnmalav2.opus" type="audio/mpeg">
-  </audio>
-
-  <button onclick="seekBackward2()">
-    <img src="../images/backward.png" alt="Backward" width="20" height="20">
-  </button>
-
-  <button onclick="seekForward2()">
-    <img src="../images/forward.png" alt="Forward" width="20" height="20">
-  </button>
-</div>
-
-<script>
-  var audiov2 = document.getElementById("audiov");
-
-  function seekBackward2() {
-    audiov2.currentTime -= 10;
-  }
-
-  function seekForward2() {
-    audiov2.currentTime += 10;
-  }
-</script>
 </body>
 </html>
